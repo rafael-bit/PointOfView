@@ -1,3 +1,4 @@
+import Footer from "@/components/shared/Footer";
 import Hero from "@/components/shared/Hero";
 import LatestPost from "@/components/shared/LatestPost";
 import TopPost from "@/components/shared/TopPost";

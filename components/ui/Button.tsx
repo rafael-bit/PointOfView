@@ -18,7 +18,7 @@ const Button = ({
   return (
     <button
       className={clsx(
-        "bg-primary py-1 px-4 rounded-lg hover:bg-primary/80 duration-500 inline-block text-white",
+        "py-1 px-4 rounded-lg bg-gray-100 hover:bg-gray-900 duration-300 inline-block hover:text-white",
         action &&
           "absolute top-5 z-[2] right-5 bg-red-600 px-5 py-1 text-white rounded-md hover:bg-red-500"
       )}

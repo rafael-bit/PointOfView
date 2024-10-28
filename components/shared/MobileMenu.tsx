@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { CgMenuGridO, CgClose } from "react-icons/cg";
+import { CgClose } from "react-icons/cg";
+import { CiMenuBurger } from "react-icons/ci";
 import {
   FaSquareXTwitter,
   FaSquareInstagram,
@@ -31,13 +32,13 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   return (
     <>
       <div
-        className="md:hidden"
+        className="cursor-pointer"
         onClick={mobileMenuHandler}
       >
         {openMobileMenu ? (
           <CgClose size={25} />
         ) : (
-          <CgMenuGridO size={25} />
+            <CiMenuBurger size={25}/>
         )}
       </div>
 
@@ -90,11 +91,6 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                   text="Log In"
                   onClick={() => null}
                   aria="Log in button"
-                />
-                <Button
-                  text="Sign Up"
-                  onClick={() => null}
-                  aria="Sign up button"
                 />
               </div>
             )}

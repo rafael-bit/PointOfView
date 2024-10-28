@@ -1,10 +1,9 @@
 "use client";
 import Link from "next/link";
 import Button from "../ui/Button";
-import Route from "../ui/Route";
-import { navLinks } from "@/constants";
+import { IoIosSearch } from "react-icons/io";
+import { LuClock4 } from "react-icons/lu";
 import MobileMenu from "./MobileMenu";
-import useMenuActive from "@/hooks/useMenuActive";
 import { useEffect, useState } from "react";
 import clsx from "clsx";
 import { User } from "@prisma/client";
@@ -55,51 +54,48 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
       >
 
         <ul className="flex flex-1 items-center justify-center gap-16 flex-2 max-md:hidden">
-          {navLinks.map((link, index) => {
-            const isActive = useMenuActive(link.route);
-
-            return (
-              <li key={index}>
-                <Route
-                  route={link.route}
-                  label={link.label}
-                  isActive={isActive}
-                />
-              </li>
-            );
-          })}
+          <div className="flex flex-col items-center justify-center">
+            <MobileMenu user={user} />
+            <p className={clsx("transition-all duration-500 ease-in-out text-sm", isScrolling && "hidden")}>Explorar</p>
+          </div>
+          <IoIosSearch size={25} cursor={"pointer"} href="/search" />
+          <div className="flex flex-col items-center justify-center">
+            <LuClock4 size={25} />
+            <p className={clsx("transition-all duration-500 ease-in-out text-sm", isScrolling && "hidden")}>Últimas</p>
+          </div>
         </ul>
 
-        <div className=" flex">
+        <div className="flex">
           <Link href={"/"}>
-            <h1 className={clsx(
-              "text-5xl font-extrabold text-secondary",
-              isScrolling
-                ? "text-3xl"
-                : ""
-            )}>
+            <h1
+              className={clsx(
+                "font-extrabold text-secondary transition-all duration-500 ease-in-out",
+                isScrolling ? "text-4xl" : "text-5xl"
+              )}
+            >
               Point of View
             </h1>
           </Link>
         </div>
 
         {!user && (
-          <div className="flex gap-5 flex-1 justify-end max-md:hidden">
+          <div className="flex gap-5 flex-1 items-center justify-evenly max-md:hidden">
+            <div className="">
+              <Link href="/subscription" className="font-bold py-2 px-4 rounded-lg bg-blue-500 hover:bg-blue-900 hover:text-white duration-300">Subscription</Link>
+            </div>
             <Button
               text="Log In"
               onClick={() => router.push("/access")}
               aria="Log in button"
             />
-            <Button
-              text="Sign Up"
-              onClick={() => router.push("/access")}
-              aria="Sign up button"
-            />
           </div>
         )}
 
         {user && (
-          <div className="flex gap-5 items-center flex-1 justify-end max-md:hidden">
+          <div className="flex gap-5 items-center flex-1 justify-evenly max-md:hidden">
+            <div className="">
+              <Link href="/subscription" className="bg-gray-200">Subscription</Link>
+            </div>
             <h1>{user.name}</h1>
             <Image
               src={user.image as string}
@@ -135,10 +131,6 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
             </li>
           </ul>
         )}
-
-        <div>
-          <MobileMenu user={user} />
-        </div>
       </div>
     </nav>
   );
