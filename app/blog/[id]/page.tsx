@@ -17,37 +17,45 @@ const getData = async (id: string) => {
   );
 
   if (!res.ok) {
-    throw new Error("Failed");
+    throw new Error("Failed to fetch post");
   }
 
   return res.json();
 };
 
-const page = async ({ params }: { params: PostTypes }) => {
+const page = async ({ params }: { params: { id: string } }) => {
   const { id } = params;
-  const post = await getData(id);
+
+  let post: PostTypes | null = null;
+  try {
+    post = await getData(id);
+    console.log("Fetched Post Data:", post);
+  } catch (error) {
+    console.error("Error fetching post:", error);
+  }
+
+  if (!post || !post.id) {
+    return <div>Post not found</div>;
+  }
+
   return (
     <div className="w-[95%] mx-auto max-w-[1450px]">
       <div className="w-full h-[400px] relative mb-5">
         <Image
           fill
           alt="image for blog"
-          src={post.img}
+          src={post.image_path}
           className="object-cover"
         />
       </div>
 
-      <Tag text={post.category} />
+      <Tag text={post.tags} />
       <h2 className="text-4xl font-extrabold uppercase text-tertiary my-3">
         {post.title}
       </h2>
 
       <div className="flex md:gap-20 gap-5 relative mt-10 md:flex-row flex-col">
-        <aside
-          className="md:sticky
-        md:top-3/4 md:h-screen
-        "
-        >
+        <aside className="md:sticky md:top-3/4 md:h-screen">
           <span className="uppercase text-2xl font-extrabold text-tertiary">
             Share:
           </span>
@@ -59,19 +67,18 @@ const page = async ({ params }: { params: PostTypes }) => {
         </aside>
 
         <article>
-          <p className="text-xl">{post.desc}</p>
-
+          <p className="text-xl">{post.paragraph}</p>
           <div className="mt-5 flex gap-5 items-center">
             <Image
-              src={post.user.image}
+              src={post.authorImage}
               width={500}
               height={500}
               alt={`Image of ${post.authorName}`}
               className="rounded-full w-20 h-20 object-cover"
             />
             <div className="flex gap-1 flex-col">
-              <span>{post.user.name}</span>
-              <span>{formatDate(post.createdAt)}</span>
+              <span>{post.authorName}</span>
+              <span>{formatDate(post.publishDate)}</span>
             </div>
           </div>
         </article>

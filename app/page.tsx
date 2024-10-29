@@ -12,7 +12,8 @@ const Home = async () => {
   return (
     <>
       <Hero posts={posts} />
-      <div className="py-96 grid lg:grid-cols-3 grid-cols-1 lg:gap-10 w-[95%] mx-auto max-w-[1450px] overflow-y-hidden h-fit mt-10">
+      <div className="div"></div>
+      <div className="grid lg:grid-cols-3 grid-cols-1 lg:gap-10 w-[95%] mx-auto max-w-[1450px] overflow-y-hidden h-fit mt-10">
         <LatestPost posts={posts} />
         <TopPost posts={posts} />
       </div>

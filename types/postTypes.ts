@@ -1,13 +1,18 @@
-import { User } from "@prisma/client";
+export interface User {
+  image: string;
+  name: string;
+}
 
 export interface PostTypes {
   id: string;
-  createdAt: string | Date
   title: string;
-  img: string | null;
-  desc: string;
+  image_path: string;
+  paragraph: string;
   featured: boolean;
-  topPost: boolean;
-  category: string;
-  user: User;
+  topPost?: boolean;
+  latestPost?: boolean;
+  tags: string[];
+  authorImage: string;
+  authorName: string;
+  publishDate: string;
 }

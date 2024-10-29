@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 import Button from "../ui/Button";
 import { IoIosSearch } from "react-icons/io";
@@ -94,17 +95,18 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
         {user && (
           <div className="flex gap-5 items-center flex-1 justify-evenly max-md:hidden">
             <div className="">
-              <Link href="/subscription" className="bg-gray-200">Subscription</Link>
+              <Link href="/subscription" className="font-bold py-2 px-4 rounded-lg bg-blue-500 hover:bg-blue-900 hover:text-white duration-300">Subscription</Link>
             </div>
-            <h1>{user.name}</h1>
-            <Image
-              src={user.image as string}
-              width={50}
-              height={50}
-              className="rounded-full border-4 border-primary cursor-pointer"
-              alt={`Image of ${user.name}`}
-              onClick={() => setOpenUserMenu(!openUserMenu)}
-            />
+            <div className="flex items-center gap-2 cursor-pointer" onClick={() => setOpenUserMenu(!openUserMenu)}>
+              <h1>{user.name}</h1>
+              <Image
+                src={user.image as string}
+                width={50}
+                height={50}
+                className="rounded-full border-4 border-primary"
+                alt={`Image of ${user.name}`}
+              />
+            </div>
           </div>
         )}
 

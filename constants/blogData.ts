@@ -1,6 +1,13 @@
-export const blogData = [
+import { PostTypes } from "@/types/postTypes";
+
+interface User {
+  image: string;
+  name: string;
+}
+
+export const blogData: PostTypes[] = [
   {
-    id: 1,
+    id: "1",
     title: "Travel to the great beyond and never stop!",
     image_path: "/assets/post1.jpg",
     paragraph:
@@ -8,13 +15,12 @@ export const blogData = [
     featured: true,
     topPost: true,
     tags: ["Adventure"],
-    authorImage:
-      "https://images.unsplash.com/photo-1579038773867-044c48829161?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
-    authorName: "Antonio Rogers",
-    publishDate: "September 27, 2023",
+    authorImage: "https://images.unsplash.com/photo-1579038773867-044c48829161?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
+    authorName: "Rafael Áquila",
+    publishDate: "September 27, 2023"
   },
   {
-    id: 2,
+    id: "2",
     title: "Wanderlust Chronicles: Tales of a Nomadic Soul",
     image_path: "/assets/post2.jpg",
     paragraph:
@@ -24,11 +30,11 @@ export const blogData = [
     tags: ["Culture"],
     authorImage:
       "https://images.unsplash.com/photo-1579038773867-044c48829161?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
-    authorName: "Antonio Rogers",
+    authorName: "Rafael Áquila",
     publishDate: "September 27, 2023",
   },
   {
-    id: 3,
+    id: "3",
     title:
       "Wander Without Borders: Exploring Boundless Beauty",
     image_path: "/assets/post3.jpg",
@@ -39,11 +45,11 @@ export const blogData = [
     tags: ["Discovery"],
     authorImage:
       "https://images.unsplash.com/photo-1579038773867-044c48829161?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
-    authorName: "Antonio Rogers",
+    authorName: "Rafael Áquila",
     publishDate: "September 27, 2023",
   },
   {
-    id: 4,
+    id: "4",
     title: "Off the Map Adventures: Chasing the Unknown",
     image_path: "/assets/post4.jpg",
     paragraph:
@@ -53,11 +59,11 @@ export const blogData = [
     tags: ["Journeys"],
     authorImage:
       "https://images.unsplash.com/photo-1579038773867-044c48829161?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
-    authorName: "Antonio Rogers",
+    authorName: "Rafael Áquila",
     publishDate: "September 27, 2023",
   },
   {
-    id: 5,
+    id: "5",
     title: "Roaming with Purpose: Life on the Road",
     image_path: "/assets/post5.jpg",
     paragraph:
@@ -68,11 +74,11 @@ export const blogData = [
     tags: ["Adventure"],
     authorImage:
       "https://images.unsplash.com/photo-1579038773867-044c48829161?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
-    authorName: "Antonio Rogers",
+    authorName: "Rafael Áquila",
     publishDate: "September 27, 2023",
   },
   {
-    id: 6,
+    id: "6",
     title:
       "Footprints Across Continents: The Traveler's Tale",
     image_path: "/assets/post6.jpg",
@@ -84,11 +90,11 @@ export const blogData = [
     tags: ["Wanderlust"],
     authorImage:
       "https://images.unsplash.com/photo-1579038773867-044c48829161?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
-    authorName: "Antonio Rogers",
+    authorName: "Rafael Áquila",
     publishDate: "September 27, 2023",
   },
   {
-    id: 7,
+    id: "7",
     title: "Travel to the great beyond and never stop!",
     image_path: "/assets/post7.jpg",
     paragraph:
@@ -98,11 +104,11 @@ export const blogData = [
     tags: ["Adventure"],
     authorImage:
       "https://images.unsplash.com/photo-1579038773867-044c48829161?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
-    authorName: "Antonio Rogers",
+    authorName: "Rafael Áquila",
     publishDate: "September 27, 2023",
   },
   {
-    id: 8,
+    id: "8",
     title: "Travel to the great beyond and never stop!",
     image_path: "/assets/post8.jpg",
     paragraph:
@@ -112,11 +118,11 @@ export const blogData = [
     tags: ["Odyssey"],
     authorImage:
       "https://images.unsplash.com/photo-1579038773867-044c48829161?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
-    authorName: "Antonio Rogers",
+    authorName: "Rafael Áquila",
     publishDate: "September 27, 2023",
   },
   {
-    id: 8,
+    id: "8",
     title: "Travel to the great beyond and never stop!",
     image_path: "/assets/post9.jpg",
     paragraph:
@@ -126,11 +132,11 @@ export const blogData = [
     tags: ["Exploration"],
     authorImage:
       "https://images.unsplash.com/photo-1579038773867-044c48829161?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
-    authorName: "Antonio Rogers",
+    authorName: "Rafael Áquila",
     publishDate: "September 27, 2023",
   },
   {
-    id: 8,
+    id: "8",
     title: "Travel to the great beyond and never stop!",
     image_path: "/assets/post9.jpg",
     paragraph:
@@ -140,7 +146,7 @@ export const blogData = [
     tags: ["Exploration"],
     authorImage:
       "https://images.unsplash.com/photo-1579038773867-044c48829161?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
-    authorName: "Antonio Rogers",
+    authorName: "Rafael Áquila",
     publishDate: "September 27, 2023",
   },
 ];
