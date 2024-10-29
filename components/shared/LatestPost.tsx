@@ -25,12 +25,6 @@ const LatestPost: React.FC = () => {
   return (
     <section className="col-span-2" aria-labelledby="latest-post">
       <div className="w-full text-center">
-        <h2
-          id="latest-post"
-          className="text-center text-2xl font-extrabold uppercase text-tertiary inline-block px-2 mb-10"
-        >
-          Latest Post
-        </h2>
       </div>
 
       <div className="flex flex-col gap-10 h-full">

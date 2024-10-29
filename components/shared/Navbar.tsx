@@ -48,19 +48,21 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
     >
       <div
         className={clsx(
-          "w-[95%] mx-auto max-w-[1450px] flex  items-center justify-between  border-b border-gray-100",
+          "w-[95%] mx-auto max-w-[1450px] flex  items-center justify-between flex-row-reverse  md:flex-row border-b border-gray-100",
           isScrolling && "pb-0 border-none",
           !isScrolling && "pb-5"
         )}
       >
 
-        <ul className="flex flex-1 items-center justify-center gap-16 flex-2 max-md:hidden">
+        <ul className="flex md:flex-1 items-center md:justify-center gap-10 flex-2">
           <div className="flex flex-col items-center justify-center">
             <MobileMenu user={user} />
             <p className={clsx("transition-all duration-500 ease-in-out text-sm", isScrolling && "hidden")}>Explorar</p>
           </div>
-          <IoIosSearch size={25} cursor={"pointer"} href="/search" />
-          <div className="flex flex-col items-center justify-center">
+          <div className="flex flex-col items-start h-16 max-md:hidden">
+            <IoIosSearch size={25} cursor={"pointer"} href="/search" />
+          </div>
+          <div className="flex flex-col items-center justify-center max-md:hidden">
             <LuClock4 size={25} />
             <p className={clsx("transition-all duration-500 ease-in-out text-sm", isScrolling && "hidden")}>Últimas</p>
           </div>
@@ -80,15 +82,17 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
         </div>
 
         {!user && (
-          <div className="flex gap-5 flex-1 items-center justify-evenly max-md:hidden">
+          <div className="flex gap-5 flex-1 items-center justify-evenly">
             <div className="">
               <Link href="/subscription" className="font-bold py-2 px-4 rounded-lg bg-blue-500 hover:bg-blue-900 hover:text-white duration-300">Subscription</Link>
             </div>
-            <Button
-              text="Log In"
-              onClick={() => router.push("/access")}
-              aria="Log in button"
-            />
+            <div className="max-md:hidden">
+              <Button
+                text="Log In"
+                onClick={() => router.push("/access")}
+                aria="Log in button"
+              />
+            </div>
           </div>
         )}
 
@@ -98,7 +102,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
               <Link href="/subscription" className="font-bold py-2 px-4 rounded-lg bg-blue-500 hover:bg-blue-900 hover:text-white duration-300">Subscription</Link>
             </div>
             <div className="flex items-center gap-2 cursor-pointer" onClick={() => setOpenUserMenu(!openUserMenu)}>
-              <h1>{user.name}</h1>
+              <h1 className="lg:block hidden">{user.name}</h1>
               <Image
                 src={user.image as string}
                 width={50}
