@@ -23,11 +23,8 @@ const LatestPost: React.FC = () => {
   };
 
   return (
-    <section className="col-span-2" aria-labelledby="latest-post">
-      <div className="w-full text-center">
-      </div>
-
-      <div className="flex flex-col gap-10 h-full">
+    <section aria-labelledby="latest-post">
+      <div className="flex gap-0.5">
         {latestPost.slice(0, visibleBlogs).map((post, id) => (
           <BlogCard post={post} key={id} />
         ))}

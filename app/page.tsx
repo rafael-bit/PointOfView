@@ -11,10 +11,9 @@ const Home = async () => {
   });
   return (
     <>
+      <LatestPost posts={posts} />
       <Hero posts={posts} />
-      <div className="div"></div>
-      <div className="grid lg:grid-cols-3 grid-cols-1 lg:gap-10 w-[95%] mx-auto max-w-[1450px] overflow-y-hidden h-fit mt-10">
-        <LatestPost posts={posts} />
+      <div className="w-[95%] mx-auto max-w-[1450px] overflow-y-hidden h-fit mt-3">
         <TopPost posts={posts} />
       </div>
     </>

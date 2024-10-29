@@ -59,7 +59,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
             <MobileMenu user={user} />
             <p className={clsx("transition-all duration-500 ease-in-out text-sm", isScrolling && "hidden")}>Explorar</p>
           </div>
-          <div className="flex flex-col items-start h-16 max-md:hidden">
+          <div className={clsx("flex flex-col items-start max-md:hidden", !isScrolling && "h-10")}>
             <IoIosSearch size={25} cursor={"pointer"} href="/search" />
           </div>
           <div className="flex flex-col items-center justify-center max-md:hidden">

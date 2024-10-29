@@ -9,27 +9,15 @@ const BlogCard: React.FC<{ post: PostTypes }> = ({
   post,
 }) => {
   return (
-    <article className="relative rounded-lg overflow-hidden">
-      <div className="w-[1000px] h-[450px] relative">
-        {post.image_path && (
-          <Image
-            src={post.image_path}
-            fill
-            alt={`image for ${post.title}`}
-            className="object-cover"
-          />
-        )}
+    <article className="relative overflow-hidden flex">
+      <div className="w-[1000px] h-32 relative">
         <Overlay />
       </div>
 
-      <div className="absolute w-full h-full top-0 p-5 flex flex-col justify-between">
-        <div>
-          <Tag text={post.tags} />
-
-          <h3 className="text-3xl font-extrabold uppercase text-white">
+      <div className="absolute top-0 w-full h-full p-5">
+          <h3 className="text-lg font-bold text-white">
             {post.title}
           </h3>
-        </div>
       </div>
 
       <Link

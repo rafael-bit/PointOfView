@@ -25,7 +25,7 @@ const Posts: React.FC<{ posts: PostTypes[] }> = ({
     } else {
       return posts
         .filter(
-          (post) => post.category === selectedCategory
+          (post) => post.tags.includes(selectedCategory)
         )
         .slice(0, visibleBlogs);
     }
