@@ -40,9 +40,9 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
   return (
     <nav
       className={clsx(
-        "py-4 w-full",
+        "py-4 w-full z-30",
         isScrolling
-          ? "fixed top-0 bg-white shadow-lg z-10"
+          ? "fixed top-0 bg-white shadow-lg z-30"
           : "relative"
       )}
     >
@@ -115,7 +115,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
         )}
 
         {openUserMenu && (
-          <ul className="z-10 absolute right-12 top-[70px] w-48 bg-white shadow-md rounded-md p-4">
+          <ul className="z-20 absolute right-12 top-[70px] w-48 bg-white shadow-md rounded-md p-4">
             <Link
               href="/create"
               onClick={() => setOpenUserMenu(false)}

@@ -15,11 +15,11 @@ const TopPost: React.FC = () => {
           id="top-post"
           className="text-center text-2xl font-extrabold uppercase text-tertiary inline-block px-2 mb-10"
         >
-          Top Post
+          Notices
         </h2>
       </div>
 
-      <div className="flex h-full flex-col gap-12 items-center">
+      <div className="flex h-full gap-12 items-center">
         {topPost.map((post, index) => (
           <Link key={index} href={`/blog/${post.id}`}>
             <article>

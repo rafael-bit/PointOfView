@@ -78,8 +78,6 @@ const Hero: React.FC = () => {
                   )}
                   <Overlay />
                 </div>
-              </Link>
-
               <Tag text={post.tags} />
               <h3 className="text-1xl font-extrabold uppercase text-tertiary px-5">
                 {post.title}
@@ -87,6 +85,7 @@ const Hero: React.FC = () => {
               <span className="font-light italic">
                 {formatDate(post.publishDate.toString())}
               </span>
+              </Link>
             </article>
           ))}
         </div>
