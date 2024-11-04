@@ -7,7 +7,7 @@ const BlogCard: React.FC<{ post: PostTypes }> = ({
 }) => {
   return (
     <article className="relative overflow-hidden flex">
-      <div className="w-[1000px] h-28 relative">
+      <div className="w-[1000px] h-24 relative">
         <Overlay />
       </div>
 
