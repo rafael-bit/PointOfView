@@ -2,12 +2,31 @@
 
 import { FaRegNewspaper } from "react-icons/fa6";
 import { FaMicrophone, FaRegLightbulb } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import { Politics } from "@/constants/politcs";
+import clsx from "clsx";
 
 const Sidebar: React.FC = () => {
 	const [selectedSection, setSelectedSection] = useState("notices");
+	const [isScrolling, setIsScrolling] = useState(false);
 
+	useEffect(() => {
+		const handleScroll = () => {
+			if (window.scrollY > 0) {
+				setIsScrolling(true);
+			} else {
+				setIsScrolling(false);
+			}
+		};
+
+		window.addEventListener("scroll", handleScroll);
+
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, []);
+	
 	const handleSectionChange = (section: string) => {
 		setSelectedSection(section);
 	};
@@ -15,7 +34,7 @@ const Sidebar: React.FC = () => {
 
 	return (
 		<div className="flex flex-col sm:flex-row">
-			<aside className="flex sm:flex-col justify-between items-center bg-gray-800 w-full sm:w-40 text-white gap-5 sm:gap-1">
+			<aside className={clsx("flex sm:flex-col justify-between items-center bg-gray-800 w-full sm:w-40 text-white gap-5 sm:gap-1 sm:h-full top-[4.5rem] sm:top-8", isScrolling ? "" : "fixed")}>
 				<div className="w-full py-6 outline-none flex flex-col items-center gap-2"></div>
 
 				<button
@@ -53,28 +72,34 @@ const Sidebar: React.FC = () => {
 				<div className="w-full py-4 outline-none flex flex-col items-center gap-2"></div>
 			</aside>
 
-			<main className="flex-1 p-10">
+			<main className="flex-1 p-10 sm:px-52 mt-44 sm:mt-16">
 				{selectedSection === "notices" && (
 					<div>
 						<h2 className="text-3xl font-bold">Notices</h2>
 						<div>
 							<h3 className="text-xl mt-5 font-semibold">Discovery</h3>
-							<div className="mt-5 flex gap-5 mb-5 flex-wrap">
+							<div className="mt-5 flex gap-5 flex-wrap">
 								<Link href="" className="bg-gray-800 text-white hover:bg-gray-700 duration-500 px-5 py-2 rounded-full">Learn more</Link>
 								<Link href="" className="bg-gray-800 text-white hover:bg-gray-700 duration-500 px-5 py-2 rounded-full">Last notices</Link>
 								<Link href="" className="bg-gray-800 text-white hover:bg-gray-700 duration-500 px-5 py-2 rounded-full">Newsletters</Link>
 								<Link href="" className="bg-gray-800 text-white hover:bg-gray-700 duration-500 px-5 py-2 rounded-full">Point of view journal</Link>
 							</div>
-							<hr />
+							<hr className="mt-5"/>
 							<h3 className="text-xl mt-5 font-semibold">Politics</h3>
-							<ul className="list-disc list-inside mt-2">
-								{politicsPosts.map((post, index) => (
-									<li key={index} className="flex items-center gap-3">
-										<img src={post.authorImage} alt={`${post.authorName}'s picture`} className="w-8 h-8 rounded-full" />
-										<span>{post.authorName}</span>
+							<ul className="flex flex-wrap gap-7 mt-2">
+								{Politics.map((region) => (
+									<li key={region.id} className="flex gap-2 mt-4">
+										<Link href={region.link}>
+											<img
+												src={region.image}
+												alt={`${region.name}`}
+												className={`${region.width} ${region.height} rounded-full`}
+											/>
+										</Link>
 									</li>
 								))}
 							</ul>
+							<hr className="mt-5"/>
 						</div>
 					</div>
 				)}

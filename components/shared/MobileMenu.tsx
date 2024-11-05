@@ -10,6 +10,7 @@ import useMenuActive from "@/hooks/useMenuActive";
 import { User } from "@prisma/client";
 import { signOut } from "next-auth/react";
 import SideBar from "./SideBar";
+import clsx from "clsx";
 
 interface MobileMenuProps {
   user: User;
@@ -17,6 +18,7 @@ interface MobileMenuProps {
 
 const MobileMenu: React.FC<MobileMenuProps> = ({ user }) => {
   const [openMobileMenu, setOpenMobileMenu] = useState(false);
+  const [isScrolling, setIsScrolling] = useState(false);
 
   const mobileMenuHandler = () => {
     setOpenMobileMenu(!openMobileMenu);
@@ -34,6 +36,22 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ user }) => {
     };
   }, [openMobileMenu]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolling(true);
+      } else {
+        setIsScrolling(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <>
       <div className="cursor-pointer" onClick={mobileMenuHandler}>
@@ -46,6 +64,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ user }) => {
             onClick={(e) => e.stopPropagation()}
             className="absolute h-screen left-0 top-0 w-full bg-white z-10 border-r overflow-y-auto flex flex-col"
           >
+            <div className={clsx("flex flex-col left-0 top-0 w-full bg-white z-10", isScrolling ? "" : "fixed")}>
             <button onClick={() => setOpenMobileMenu(false)} className="absolute top-5 right-5 text-tertiary">
               <CgClose size={25} />
             </button>
@@ -54,6 +73,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ user }) => {
               <Link href="/">
                 <h1 className="text-3xl font-extrabold text-secondary">Point of View</h1>
               </Link>
+            </div>
             </div>
             <SideBar />
 
