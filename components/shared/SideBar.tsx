@@ -5,22 +5,22 @@ import { FaMicrophone, FaRegLightbulb } from "react-icons/fa";
 import { useState } from "react";
 import Link from "next/link";
 
-const SidebarNavigation: React.FC = () => {
+const Sidebar: React.FC = () => {
 	const [selectedSection, setSelectedSection] = useState("notices");
 
 	const handleSectionChange = (section: string) => {
 		setSelectedSection(section);
 	};
 
+
 	return (
-		<div className="flex">
-			<aside className="flex flex-col justify-between items-center bg-gray-800 w-40 text-white gap-1">
+		<div className="flex flex-col sm:flex-row">
+			<aside className="flex sm:flex-col justify-between items-center bg-gray-800 w-full sm:w-40 text-white gap-5 sm:gap-1">
 				<div className="w-full py-6 outline-none flex flex-col items-center gap-2"></div>
 
 				<button
 					onClick={() => handleSectionChange("notices")}
-					className={`w-full py-6 outline-none flex flex-col items-center hover:bg-gray-700 hover:duration-300  ${selectedSection === "notices" ? "bg-gray-700" : ""
-						}`}
+					className={`w-full py-6 outline-none flex flex-col items-center hover:bg-gray-700 hover:duration-300 ${selectedSection === "notices" ? "bg-gray-700" : ""}`}
 				>
 					<FaRegNewspaper size={40} className="hover:h-12 duration-300" />
 					Notices
@@ -28,8 +28,7 @@ const SidebarNavigation: React.FC = () => {
 
 				<button
 					onClick={() => handleSectionChange("voices")}
-					className={`w-full py-6 outline-none flex flex-col items-center hover:bg-gray-700 hover:duration-300  ${selectedSection === "voices" ? "bg-gray-700" : ""
-						}`}
+					className={`w-full py-6 outline-none flex flex-col items-center hover:bg-gray-700 hover:duration-300 ${selectedSection === "voices" ? "bg-gray-700" : ""}`}
 				>
 					<FaMicrophone size={40} className="hover:h-12 duration-300" />
 					Voices
@@ -37,8 +36,7 @@ const SidebarNavigation: React.FC = () => {
 
 				<button
 					onClick={() => handleSectionChange("about")}
-					className={`w-full py-6 outline-none flex flex-col items-center hover:bg-gray-700 hover:duration-300  ${selectedSection === "about" ? "bg-gray-700" : ""
-						}`}
+					className={`w-full py-6 outline-none flex flex-col items-center hover:bg-gray-700 hover:duration-300 ${selectedSection === "about" ? "bg-gray-700" : ""}`}
 				>
 					<FaRegLightbulb size={40} className="hover:h-12 duration-300" />
 					About
@@ -46,8 +44,7 @@ const SidebarNavigation: React.FC = () => {
 
 				<button
 					onClick={() => handleSectionChange("contact")}
-					className={`w-full py-6 outline-none flex flex-col items-center hover:bg-gray-700 hover:duration-300  ${selectedSection === "contact" ? "bg-gray-700" : ""
-						}`}
+					className={`w-full py-6 outline-none flex flex-col items-center hover:bg-gray-700 hover:duration-300 ${selectedSection === "contact" ? "bg-gray-700" : ""}`}
 				>
 					<FaRegLightbulb size={40} className="hover:h-12 duration-300" />
 					Contact
@@ -62,7 +59,7 @@ const SidebarNavigation: React.FC = () => {
 						<h2 className="text-3xl font-bold">Notices</h2>
 						<div>
 							<h3 className="text-xl mt-5 font-semibold">Discovery</h3>
-							<div className="mt-5 flex gap-5 mb-5">
+							<div className="mt-5 flex gap-5 mb-5 flex-wrap">
 								<Link href="" className="bg-gray-800 text-white hover:bg-gray-700 duration-500 px-5 py-2 rounded-full">Learn more</Link>
 								<Link href="" className="bg-gray-800 text-white hover:bg-gray-700 duration-500 px-5 py-2 rounded-full">Last notices</Link>
 								<Link href="" className="bg-gray-800 text-white hover:bg-gray-700 duration-500 px-5 py-2 rounded-full">Newsletters</Link>
@@ -70,8 +67,14 @@ const SidebarNavigation: React.FC = () => {
 							</div>
 							<hr />
 							<h3 className="text-xl mt-5 font-semibold">Politics</h3>
-							
-							<div className=""></div>
+							<ul className="list-disc list-inside mt-2">
+								{politicsPosts.map((post, index) => (
+									<li key={index} className="flex items-center gap-3">
+										<img src={post.authorImage} alt={`${post.authorName}'s picture`} className="w-8 h-8 rounded-full" />
+										<span>{post.authorName}</span>
+									</li>
+								))}
+							</ul>
 						</div>
 					</div>
 				)}
@@ -98,4 +101,4 @@ const SidebarNavigation: React.FC = () => {
 	);
 };
 
-export default SidebarNavigation;	
+export default Sidebar;

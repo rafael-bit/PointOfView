@@ -57,7 +57,7 @@ const page = () => {
         </div>
 
         <Image
-          src="/assets/access.jpg"
+          src="/access.jpg"
           height={500}
           width={500}
           alt="Sign up form image"

@@ -43,7 +43,7 @@ const page = () => {
 
         <div className="w-full items-center flex justify-center">
           <Image
-            src="/assets/signature.png"
+            src="/signature.png"
             width={500}
             height={500}
             alt="singnature"

@@ -8,7 +8,7 @@ const page = () => {
     <div>
       <div className="relative h-[500px] w-full">
         <Image
-          src="/assets/contact.jpg"
+          src="/contact.jpg"
           fill
           alt="contact image"
           className="object-cover"
