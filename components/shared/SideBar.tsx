@@ -35,7 +35,7 @@ const Sidebar: React.FC = () => {
 
 	return (
 		<div className="flex flex-col sm:flex-row">
-			<aside className={clsx("flex sm:flex-col justify-between items-center bg-gray-800 w-full sm:w-40 text-white gap-5 sm:gap-1 sm:h-full top-[4.5rem] sm:top-8", isScrolling ? "" : "fixed")}>
+			<aside className={clsx("z-10 flex sm:flex-col justify-between items-center bg-gray-800 w-full sm:w-40 text-white gap-5 sm:gap-1 sm:h-full top-[4.5rem] sm:top-8", isScrolling ? "" : "fixed")}>
 				<div className="w-full py-6 outline-none flex flex-col items-center gap-2"></div>
 
 				<button
@@ -73,7 +73,7 @@ const Sidebar: React.FC = () => {
 				<div className="w-full py-4 outline-none flex flex-col items-center gap-2"></div>
 			</aside>
 
-			<main className="flex-1 p-10 sm:px-52 mt-44 sm:mt-16">
+			<main className="flex-1 p-10 sm:px-52 mt-44 sm:mt-16 mb-16">
 				{selectedSection === "notices" && (
 					<div>
 						<h2 className="text-3xl font-bold">Notices</h2>

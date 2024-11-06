@@ -64,24 +64,25 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ user }) => {
             onClick={(e) => e.stopPropagation()}
             className="absolute h-screen left-0 top-0 w-full bg-white z-10 border-r overflow-y-auto flex flex-col"
           >
-            <div className={clsx("flex flex-col left-0 top-0 w-full bg-white z-10", isScrolling ? "" : "fixed")}>
-            <button onClick={() => setOpenMobileMenu(false)} className="absolute top-5 right-5 text-tertiary">
-              <CgClose size={25} />
-            </button>
+            <div className={clsx("flex flex-col left-0 top-0 w-full bg-white z-20", isScrolling ? "" : "fixed")}>
+              <button onClick={() => setOpenMobileMenu(false)} className="absolute top-5 right-5 text-tertiary">
+                <CgClose size={25} />
+              </button>
 
-            <div className="border-b py-5 text-center shadow-md">
-              <Link href="/">
-                <h1 className="text-3xl font-extrabold text-secondary">Point of View</h1>
-              </Link>
-            </div>
+              <div className="border-b py-5 text-center shadow-md">
+                <Link href="/">
+                  <h1 className="text-3xl font-extrabold text-secondary">Point of View</h1>
+                </Link>
+              </div>
             </div>
             <SideBar />
 
-            <div className="flex text-secondary flex-1 justify-center gap-20 pb-5">
-              <FaSquareWhatsapp size={40}/>
-              <FaSquareInstagram size={40}/>
-              <FaSquareXTwitter size={40}/>
+            <div className="flex text-secondary justify-center gap-10 sm:gap-20 pb-5 w-full fixed bottom-0 bg-gray-50 py-4">
+              <FaSquareWhatsapp size={40} />
+              <FaSquareInstagram size={40} />
+              <FaSquareXTwitter size={40} />
             </div>
+
             {!user && (
               <div className="flex gap-5 flex-1 flex-col py-5">
                 <Button text="Log In" onClick={() => null} aria="Log in button" />
