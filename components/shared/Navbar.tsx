@@ -48,21 +48,21 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
     >
       <div
         className={clsx(
-          "w-[95%] mx-auto max-w-[1450px] flex  items-center justify-between flex-row-reverse  md:flex-row border-b border-gray-100",
+          "w-full flex items-center justify-between flex-row-reverse  md:flex-row border-b border-gray-100",
           isScrolling && "pb-0 border-none",
           !isScrolling && "pb-5"
         )}
       >
 
-        <ul className="flex md:flex-1 items-center md:justify-center gap-10 flex-2">
-          <div className="flex flex-col items-center justify-center">
+        <ul className="flex md:flex-1 items-center md:justify-evenly">
+          <div className="flex flex-col items-center justify-center hover:bg-gray-100 rounded-full">
             <MobileMenu user={user} />
             <p className={clsx("transition-all duration-500 ease-in-out text-sm", isScrolling && "hidden")}>Explorer</p>
           </div>
-          <div className={clsx("flex flex-col items-start max-md:hidden cursor-pointer", !isScrolling && "h-10")}>
-            <IoIosSearch size={25} href="/search" />
+          <div className={clsx("flex flex-col items-start max-md:hidden cursor-pointer hover:bg-gray-100 rounded-full", !isScrolling && "h-10")}>
+            <IoIosSearch size={30} href="/search" />
           </div>
-          <div className="flex flex-col items-center justify-center max-md:hidden cursor-pointer">
+          <div className="flex flex-col items-center justify-center max-md:hidden cursor-pointer hover:bg-gray-100 rounded-full">
             <LuClock4 size={25} />
             <p className={clsx("transition-all duration-500 ease-in-out text-sm", isScrolling && "hidden")}>Last</p>
           </div>

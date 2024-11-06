@@ -5,6 +5,7 @@ import { FaMicrophone, FaRegLightbulb } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Politics } from "@/constants/politcs";
+import { Ideas } from "@/constants/ideas";
 import clsx from "clsx";
 
 const Sidebar: React.FC = () => {
@@ -26,7 +27,7 @@ const Sidebar: React.FC = () => {
 			window.removeEventListener("scroll", handleScroll);
 		};
 	}, []);
-	
+
 	const handleSectionChange = (section: string) => {
 		setSelectedSection(section);
 	};
@@ -84,22 +85,39 @@ const Sidebar: React.FC = () => {
 								<Link href="" className="bg-gray-800 text-white hover:bg-gray-700 duration-500 px-5 py-2 rounded-full">Newsletters</Link>
 								<Link href="" className="bg-gray-800 text-white hover:bg-gray-700 duration-500 px-5 py-2 rounded-full">Point of view journal</Link>
 							</div>
-							<hr className="mt-5"/>
+							<hr className="mt-7" />
 							<h3 className="text-xl mt-5 font-semibold">Politics</h3>
-							<ul className="flex flex-wrap gap-7 mt-2">
+							<ul className="flex flex-wrap items-center gap-7 mt-2">
 								{Politics.map((region) => (
-									<li key={region.id} className="flex gap-2 mt-4">
-										<Link href={region.link}>
+									<li key={region.id} className="flex mt-4">
+										<Link href={region.link} className="flex flex-col items-center">
 											<img
 												src={region.image}
 												alt={`${region.name}`}
 												className={`${region.width} ${region.height} rounded-full`}
 											/>
+											<span className="pt-5 gap-7">{region.name}</span>
 										</Link>
 									</li>
 								))}
 							</ul>
-							<hr className="mt-5"/>
+							<hr className="mt-7" />
+							<h3 className="text-xl mt-5 font-semibold">Ideas and current affairs</h3>
+							<ul className="flex flex-wrap items-center gap-10 mt-2">
+								{Ideas.map((idea) => (
+									<li key={idea.id} className="flex mt-4">
+										<Link href={idea.link} className="flex flex-col items-center">
+											<img
+												src={idea.image}
+												alt={idea.name}
+												className={`${idea.width} ${idea.height} rounded-full`}
+											/>
+											<span className="pt-5 gap-7">{idea.name}</span>
+										</Link>
+									</li>
+								))}
+							</ul>
+							<hr className="mt-7" />
 						</div>
 					</div>
 				)}

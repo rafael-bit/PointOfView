@@ -77,7 +77,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ user }) => {
             </div>
             <SideBar />
 
-            <div className="flex text-secondary flex-1 justify-center gap-20">
+            <div className="flex text-secondary flex-1 justify-center gap-20 pb-5">
               <FaSquareWhatsapp size={40}/>
               <FaSquareInstagram size={40}/>
               <FaSquareXTwitter size={40}/>
