@@ -8,6 +8,7 @@ import { Politics } from "@/constants/politcs";
 import { Ideas } from "@/constants/ideas";
 import clsx from "clsx";
 import Users from "./Users";
+import { MdOutlineContacts } from "react-icons/md";
 
 const Sidebar: React.FC = () => {
 	const [selectedSection, setSelectedSection] = useState("notices");
@@ -63,13 +64,6 @@ const Sidebar: React.FC = () => {
 					About
 				</button>
 
-				<button
-					onClick={() => handleSectionChange("contact")}
-					className={`w-full py-6 outline-none flex flex-col items-center hover:bg-gray-700 hover:duration-300 ${selectedSection === "contact" ? "bg-gray-700" : ""}`}
-				>
-					<FaRegLightbulb size={40} className="hover:h-12 duration-300" />
-					Contact
-				</button>
 
 				<div className="w-full py-4 outline-none flex flex-col items-center gap-2"></div>
 			</aside>
@@ -126,21 +120,16 @@ const Sidebar: React.FC = () => {
 					<div>
 						<h2 className="text-3xl font-bold">Voices</h2>
 						<Users />
-						<div className="flex flex-wrap gap-5">
-							
-						</div>
 					</div>
 				)}
 				{selectedSection === "about" && (
-					<div>
-						<h2 className="text-3xl font-bold">About</h2>
-						<p>Details and information for Section 3 go here.</p>
-					</div>
-				)}
-				{selectedSection === "contact" && (
-					<div>
-						<h2 className="text-3xl font-bold">Contact</h2>
-						<p>Details and information for Section 3 go here.</p>
+					<div className="flex flex-col justify-center">
+						<h2 className="text-3xl font-bold">About Us</h2>
+						<div className="mt-10">
+							<p><b>Point of View</b> is a space dedicated to the analysis and discussion of relevant topics from distinct and in-depth perspectives. Our goal is to provide content that sparks reflection, encourages debate, and enriches understanding of our ever-evolving world.</p>
+							<p className="mt-3">Through careful analysis and reliable sources, our mission is to deliver journalism that goes beyond the headlines, exploring contexts, stories, and nuances often hidden from view. We believe that true understanding comes from a diversity of opinions and a commitment to truth.</p>
+							<p className="mt-3">Welcome to <b>Point of View</b> — where your vision meets a new angle.</p>
+						</div>
 					</div>
 				)}
 			</main>

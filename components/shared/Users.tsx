@@ -22,11 +22,12 @@ export default function UsersPage() {
 	}, []);
 
 	return (
-		<div>
+		<div className='mt-10'>
+			<h3 className='text-xl mt-5 font-semibold'>Columnist</h3>
 			<ul className="flex flex-wrap items-center gap-7 mt-2">
 				{users.map((user) => (
 					<li key={user.id} className="flex mt-4">
-						<Link href={`/column/${user.id}`}>
+						<Link href={`/columnist/${user.id}`}>
 							{user.image && <img src={user.image} alt={`${user.name}'s avatar`} className='rounded-full w-20 h-20 object-cover' />}
 							<p>{user.name}</p>
 						</Link>
