@@ -20,7 +20,7 @@ model Account {
   scope             String?
   id_token          String? @db.String
   session_state     String?
-  theme             String?
+  column            Boolean? @default(false)
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -44,6 +44,7 @@ model User {
   accounts      Account[]
   sessions      Session[]
   Blog          Blog[]
+  column        Boolean? @default(false)
 }
 
 model VerificationToken {

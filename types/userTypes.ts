@@ -1,7 +1,8 @@
 export type userTypes = {
   id: string;
-  name: string | null;
-  email: string | null;
+  name: string;
+  email: string;
   emailVerified: Date | string | null;
   image: string | null;
+  column: boolean;
 } | null

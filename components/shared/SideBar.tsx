@@ -7,6 +7,7 @@ import Link from "next/link";
 import { Politics } from "@/constants/politcs";
 import { Ideas } from "@/constants/ideas";
 import clsx from "clsx";
+import Users from "./Users";
 
 const Sidebar: React.FC = () => {
 	const [selectedSection, setSelectedSection] = useState("notices");
@@ -35,7 +36,7 @@ const Sidebar: React.FC = () => {
 
 	return (
 		<div className="flex flex-col sm:flex-row">
-			<aside className={clsx("z-10 flex sm:flex-col justify-between items-center bg-gray-800 w-full sm:w-40 text-white gap-5 sm:gap-1 sm:h-full top-[4.5rem] sm:top-8", isScrolling ? "" : "fixed")}>
+			<aside className={clsx("z-10 flex sm:flex-col justify-around items-center bg-gray-800 w-full sm:w-40 text-white gap-5 sm:gap-0 sm:h-full top-[4.5rem] sm:top-8", isScrolling ? "" : "fixed")}>
 				<div className="w-full py-6 outline-none flex flex-col items-center gap-2"></div>
 
 				<button
@@ -124,7 +125,10 @@ const Sidebar: React.FC = () => {
 				{selectedSection === "voices" && (
 					<div>
 						<h2 className="text-3xl font-bold">Voices</h2>
-						<p>Details and information for Section 2 go here.</p>
+						<Users />
+						<div className="flex flex-wrap gap-5">
+							
+						</div>
 					</div>
 				)}
 				{selectedSection === "about" && (
