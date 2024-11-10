@@ -84,7 +84,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
         {!user && (
           <div className="flex gap-5 flex-1 items-center justify-evenly">
             <div className="">
-              <Link href="/subscription" className="font-bold py-2 px-4 rounded-lg bg-gray-900 hover:bg-gray-800 text-white duration-300">
+              <Link href="/subscription" className="font-bold py-2 px-4 rounded-lg bg-gray-900 hover:bg-gray-800 duration-300 text-white">
                 Subscription
               </Link>
             </div>
@@ -101,7 +101,7 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
         {user && (
           <div className="flex gap-5 items-center flex-1 justify-evenly max-md:hidden">
             <div className="">
-              <Link href="/subscription" className="font-bold py-2 px-4 rounded-lg bg-gray-900 hover:bg-gray-800 text-white duration-300">
+              <Link href="/subscription" className="font-bold py-2 px-4 rounded-lg bg-gray-900 hover:bg-gray-800 duration-300 text-white">
                 Subscription
               </Link>
             </div>
@@ -120,18 +120,23 @@ const Navbar: React.FC<NavbarProps> = ({ user }) => {
 
         {openUserMenu && (
           <ul className="z-20 absolute right-12 top-[70px] w-48 bg-white shadow-md rounded-md p-4">
-            <Link
-              href="/create"
-              onClick={() => setOpenUserMenu(false)}
-            >
-              <li>Create a post</li>
-            </Link>
-            <Link
-              href="/userposts"
-              onClick={() => setOpenUserMenu(false)}
-            >
-              <li>My Post</li>
-            </Link>
+            {user.column && (
+              <>
+                <Link
+                  href="/userposts"
+                  onClick={() => setOpenUserMenu(false)}
+                >
+                  <li>My Post</li>
+                </Link>
+                <Link
+                  href="/create"
+                  onClick={() => setOpenUserMenu(false)}
+                >
+                  <li>Create a post</li>
+                </Link>
+              </>
+
+            )}
 
             <li
               className="cursor-pointer"

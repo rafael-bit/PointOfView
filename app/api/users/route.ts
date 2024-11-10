@@ -10,6 +10,6 @@ export async function GET() {
 		});
 		return NextResponse.json(activeUsers);
 	} catch (error) {
-		return NextResponse.json({ error: 'Erro ao buscar usuários ativos' }, { status: 500 });
+		return NextResponse.json({ error: 'Error fetching users' }, { status: 500 });
 	}
 }

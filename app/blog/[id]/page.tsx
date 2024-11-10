@@ -54,8 +54,10 @@ const page = async ({ params }: { params: { id: string } }) => {
         {post.title}
       </h2>
 
+      <p className="text-xl my-3"></p>
+
       <div className="flex md:gap-20 gap-5 relative mt-10 md:flex-row flex-col">
-        <aside className="md:sticky md:top-3/4 md:h-screen">
+        <aside className="md:sticky md:top-3/4">
           <span className="uppercase text-2xl font-extrabold text-tertiary">
             Share:
           </span>
@@ -67,7 +69,6 @@ const page = async ({ params }: { params: { id: string } }) => {
         </aside>
 
         <article>
-          <p className="text-xl">{post.paragraph}</p>
           <div className="mt-5 flex gap-5 items-center">
             <Image
               src={post.authorImage}

@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import BlogCard from "./BlogCard";
 import Button from "../ui/Button";
 import { PostTypes } from "@/types/postTypes";
 import clsx from "clsx";
+import ColumnCard from "./ColumnCard";
 
 const Posts: React.FC<{ posts: PostTypes[] }> = ({
   posts,
@@ -37,6 +37,8 @@ const Posts: React.FC<{ posts: PostTypes[] }> = ({
     "Culture",
     "Discovery",
     "Journeys",
+    "Politics",
+    "all",
   ];
 
   const handleCategoryChange = (category: string) => {
@@ -51,7 +53,7 @@ const Posts: React.FC<{ posts: PostTypes[] }> = ({
           id="posts"
           className="text-center text-2xl font-extrabold uppercase text-tertiary inline-block px-2 mb-10"
         >
-          All Post
+          Columnist
         </h2>
       </div>
 
@@ -62,8 +64,8 @@ const Posts: React.FC<{ posts: PostTypes[] }> = ({
             onClick={() => handleCategoryChange(category)}
             className={clsx(
               selectedCategory === category
-                ? "bg-tertiary/60 text-white"
-                : "bg-tertiary text-white",
+                ? "bg-tertiary/60"
+                : "bg-tertiary",
               "px-4 py-2 rounded hover:bg-tertiary/50 mb-10"
             )}
           >
@@ -72,11 +74,11 @@ const Posts: React.FC<{ posts: PostTypes[] }> = ({
         ))}
       </div>
 
-      <div className="flex flex-col gap-10 h-full">
+      <div className="gap-10 h-full">
         {filterPostsByCategory()
           .slice(0, visibleBlogs)
           .map((post, id) => (
-            <BlogCard post={post} key={id} />
+            <ColumnCard post={post} key={id} />
           ))}
         {visibleBlogs < posts.length && (
           <div className="flex justify-center">

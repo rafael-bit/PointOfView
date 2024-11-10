@@ -4,13 +4,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { PostTypes } from "@/types/postTypes";
 import { formatDate } from "@/utils/formatDate";
-import { blogData } from "@/constants/blogData";
 
-const Hero: React.FC = () => {
-  const posts: PostTypes[] = blogData;
-  const featuredPost = posts.filter(
-    (post) => post.featured === true
-  );
+interface HeroProps {
+  posts: PostTypes[];
+}
+
+const Hero: React.FC<HeroProps> = ({ posts }) => {
+  const featuredPost = posts.filter((post) => post.featured === true);
 
   const topFeatured = featuredPost.slice(0, 1);
   const bottomFeatured = featuredPost.slice(1, 4);
@@ -39,7 +39,7 @@ const Hero: React.FC = () => {
                 />
               )}
               <span>{post.authorName}</span>
-              <span className=" italic">
+              <span className="italic">
                 {formatDate(post.publishDate.toString())}
               </span>
             </div>
@@ -68,7 +68,7 @@ const Hero: React.FC = () => {
                 className="w-full"
                 href={`/blog/${post.id}`}
               >
-                <div className="relative  overflow-hidden h-72 shadow-xl w-full">
+                <div className="relative overflow-hidden h-72 shadow-xl w-full">
                   {post.image_path && (
                     <img
                       src={post.image_path}
@@ -78,13 +78,13 @@ const Hero: React.FC = () => {
                   )}
                   <Overlay />
                 </div>
-              <Tag text={post.tags} />
-              <h3 className="text-1xl font-extrabold uppercase text-tertiary px-5">
-                {post.title}
-              </h3>
-              <span className="font-light italic">
-                {formatDate(post.publishDate.toString())}
-              </span>
+                <Tag text={post.tags} />
+                <h3 className="text-1xl font-extrabold uppercase text-tertiary px-5">
+                  {post.title}
+                </h3>
+                <span className="font-light italic">
+                  {formatDate(post.publishDate.toString())}
+                </span>
               </Link>
             </article>
           ))}

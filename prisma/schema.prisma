@@ -57,14 +57,16 @@ model VerificationToken {
 }
 
 model Blog {
-  id        String   @id @default(cuid()) @map("_id")
-  createdAt DateTime @default(now())
-  title     String
-  desc      String
-  img       String?
-  category  String
-  userEmail String
-  featured  Boolean  @default(false)
-  topPost   Boolean  @default(false)
-  user      User     @relation(fields: [userEmail], references: [email])
+  id         String    @id @default(cuid()) @map("_id")
+  title      String
+  desc       String
+  img        String?
+  featured   Boolean @default(false) 
+  topPost    Boolean @default(false) 
+  latestPost Boolean? @default(false) 
+  tags       String[]
+  createdAt  DateTime @default(now())
+  
+  userEmail  String
+  user       User     @relation(fields: [userEmail], references: [email])
 }

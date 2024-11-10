@@ -2,9 +2,7 @@ import Overlay from "../ui/Overlay";
 import Link from "next/link";
 import { PostTypes } from "@/types/postTypes";
 
-const BlogCard: React.FC<{ post: PostTypes }> = ({
-  post,
-}) => {
+const BlogCard: React.FC<{ post: PostTypes }> = ({ post }) => {
   return (
     <article className="relative overflow-hidden flex">
       <div className="w-[1000px] h-24 relative">
@@ -14,7 +12,7 @@ const BlogCard: React.FC<{ post: PostTypes }> = ({
       <div className="absolute top-0 w-full h-full p-5">
         <Link
           href={`/blog/${post.id}`}
-          className="absolute bottom-0 right-0 bg-tertiary p-5 text-white rounded-tl-lg z-6 cursor-pointer hover:underline  "
+          className="absolute bottom-0 right-0 bg-tertiary p-5 text-white rounded-tl-lg z-6 cursor-pointer hover:underline"
         >
           <h3 className="text-lg font-bold text-white">
             {post.title}

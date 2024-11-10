@@ -1,8 +1,8 @@
-export type userTypes = {
+export interface userTypes {
   id: string;
-  name: string;
-  email: string;
-  emailVerified: Date | string | null;
+  name: string | null;
   image: string | null;
-  column: boolean;
-} | null
+  email: string | null;
+  emailVerified: Date | null;
+  column: boolean | null;
+}

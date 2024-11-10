@@ -27,7 +27,7 @@ export default function UsersPage() {
 			<ul className="flex flex-wrap items-center gap-7 mt-2">
 				{users.map((user) => (
 					<li key={user.id} className="flex mt-4">
-						<Link href={`/columnist/${user.id}`}>
+						<Link href={`/blog/${user.id}`}>
 							{user.image && <img src={user.image} alt={`${user.name}'s avatar`} className='rounded-full w-20 h-20 object-cover' />}
 							<p>{user.name}</p>
 						</Link>

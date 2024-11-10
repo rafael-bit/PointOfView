@@ -15,7 +15,6 @@ export async function createPost(formData: FormData) {
       img: image,
       title: title,
       desc: desc,
-      category: cat,
       userEmail: userEmail
     }
   })

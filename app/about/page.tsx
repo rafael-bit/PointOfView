@@ -12,7 +12,7 @@ const page = () => {
           className="object-cover"
         />
         <Overlay />
-        <h1 className="flex absolute w-full h-full justify-center items-center text-4xl font-extrabold uppercase text-white">
+        <h1 className="flex absolute w-full h-full justify-center items-center text-4xl font-extrabold uppercase">
           About Us
         </h1>
       </div>

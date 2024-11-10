@@ -37,12 +37,12 @@ const Sidebar: React.FC = () => {
 
 	return (
 		<div className="flex flex-col sm:flex-row">
-			<aside className={clsx("z-10 flex sm:flex-col justify-around items-center bg-gray-800 w-full sm:w-40 text-white gap-5 sm:gap-0 sm:h-full top-[4.5rem] sm:top-8", isScrolling ? "" : "fixed")}>
+			<aside className={clsx("z-10 flex sm:flex-col justify-around items-center bg-gray-800 w-full sm:w-40 gap-5 sm:gap-0 sm:h-full top-[4.5rem] sm:top-8", isScrolling ? "" : "fixed")}>
 				<div className="w-full py-6 outline-none flex flex-col items-center gap-2"></div>
 
 				<button
 					onClick={() => handleSectionChange("notices")}
-					className={`w-full py-6 outline-none flex flex-col items-center hover:bg-gray-700 hover:duration-300 ${selectedSection === "notices" ? "bg-gray-700" : ""}`}
+					className={`text-white w-full py-6 outline-none flex flex-col items-center hover:bg-gray-700 hover:duration-300 ${selectedSection === "notices" ? "bg-gray-700" : ""}`}
 				>
 					<FaRegNewspaper size={40} className="hover:h-12 duration-300" />
 					Notices
@@ -50,7 +50,7 @@ const Sidebar: React.FC = () => {
 
 				<button
 					onClick={() => handleSectionChange("voices")}
-					className={`w-full py-6 outline-none flex flex-col items-center hover:bg-gray-700 hover:duration-300 ${selectedSection === "voices" ? "bg-gray-700" : ""}`}
+					className={`text-white w-full py-6 outline-none flex flex-col items-center hover:bg-gray-700 hover:duration-300 ${selectedSection === "voices" ? "bg-gray-700" : ""}`}
 				>
 					<FaMicrophone size={40} className="hover:h-12 duration-300" />
 					Voices
@@ -58,7 +58,7 @@ const Sidebar: React.FC = () => {
 
 				<button
 					onClick={() => handleSectionChange("about")}
-					className={`w-full py-6 outline-none flex flex-col items-center hover:bg-gray-700 hover:duration-300 ${selectedSection === "about" ? "bg-gray-700" : ""}`}
+					className={`text-white w-full py-6 outline-none flex flex-col items-center hover:bg-gray-700 hover:duration-300 ${selectedSection === "about" ? "bg-gray-700" : ""}`}
 				>
 					<FaRegLightbulb size={40} className="hover:h-12 duration-300" />
 					About

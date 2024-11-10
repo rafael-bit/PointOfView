@@ -4,11 +4,12 @@ import { useState } from "react";
 import BlogCard from "./BlogCard";
 import Button from "../ui/Button";
 import { PostTypes } from "@/types/postTypes";
-import { blogData } from "@/constants/blogData";
 
-const LatestPost: React.FC = () => {
-  const posts: PostTypes[] = blogData;
+interface LatestPostProps {
+  posts: PostTypes[];
+}
 
+const LatestPost: React.FC<LatestPostProps> = ({ posts }) => {
   const latestPost = posts
     .filter((post) => post.latestPost === true)
     .sort((a, b) =>
@@ -26,7 +27,7 @@ const LatestPost: React.FC = () => {
     <section aria-labelledby="latest-post">
       <div className="flex gap-0.5">
         {latestPost.slice(0, visibleBlogs).map((post, id) => (
-          <BlogCard post={post} key={id} />
+          <BlogCard post={post} key={post.id} />
         ))}
         {visibleBlogs < latestPost.length && (
           <div className="flex justify-center">

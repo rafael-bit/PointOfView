@@ -4,8 +4,13 @@ import Tag from "../ui/Tag";
 import Overlay from "../ui/Overlay";
 import { formatDate } from "@/utils/formatDate";
 import { blogData } from "@/constants/blogData";
+import { PostTypes } from "@/types/postTypes";
 
-const TopPost: React.FC = () => {
+interface TopPostProps {
+  posts: PostTypes[];
+}
+
+const TopPost: React.FC<TopPostProps> = ({ posts }) => {
   const topPost = blogData.filter(post => post.topPost === true);
 
   return (
@@ -20,8 +25,8 @@ const TopPost: React.FC = () => {
       </div>
 
       <div className="flex h-full gap-12 items-center">
-        {topPost.map((post, index) => (
-          <Link key={index} href={`/blog/${post.id}`}>
+        {topPost.map((post) => (
+          <Link key={post.id} href={`/blog/${post.id}`}>
             <article>
               <div className="relative cursor-pointer">
                 {post.image_path && (
