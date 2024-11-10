@@ -2,15 +2,11 @@ import Tag from "../ui/Tag";
 import Overlay from "../ui/Overlay";
 import Link from "next/link";
 import Image from "next/image";
-import { PostTypes } from "@/types/postTypes";
 import { formatDate } from "@/utils/formatDate";
+import { blogData } from "@/constants/blogData";
 
-interface HeroProps {
-  posts: PostTypes[];
-}
-
-const Hero: React.FC<HeroProps> = ({ posts }) => {
-  const featuredPost = posts.filter((post) => post.featured === true);
+const Hero: React.FC = () => {
+  const featuredPost = blogData.filter((post) => post.featured === true);
 
   const topFeatured = featuredPost.slice(0, 1);
   const bottomFeatured = featuredPost.slice(1, 4);

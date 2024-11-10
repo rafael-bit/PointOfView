@@ -3,6 +3,7 @@ import LatestPost from "@/components/shared/LatestPost";
 import TopPost from "@/components/shared/TopPost";
 import prisma from "@/lib/prismadb";
 import { PostTypes } from "@/types/postTypes";
+
 const Home = async () => {
   const posts = await prisma.blog.findMany({
     include: {
@@ -24,11 +25,12 @@ const Home = async () => {
     publishDate: post.createdAt.toISOString(),
   }));
 
+  console.log(formattedPosts);
 
   return (
     <>
       <LatestPost posts={formattedPosts} />
-      <Hero posts={formattedPosts} />
+      <Hero />
       <div className="w-[95%] mx-auto max-w-[1450px] overflow-y-hidden h-fit mt-3">
         <TopPost posts={formattedPosts} />
       </div>

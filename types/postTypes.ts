@@ -9,8 +9,8 @@ export type PostTypes = {
   image_path: string;
   paragraph: string;
   featured: boolean;
-  topPost: boolean;
-  latestPost: boolean | null;
+  topPost?: boolean;
+  latestPost?: boolean | null;
   tags: string[];
   authorImage: string;
   authorName: string;
