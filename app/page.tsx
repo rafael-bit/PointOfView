@@ -10,7 +10,8 @@ const Home = async () => {
       user: true,
     },
   });
-
+  console.log(posts);
+  
   const formattedPosts: PostTypes[] = posts.map((post) => ({
     id: post.id,
     title: post.title,
@@ -25,11 +26,10 @@ const Home = async () => {
     publishDate: post.createdAt.toISOString(),
   }));
 
-  console.log(formattedPosts);
 
   return (
     <>
-      <LatestPost posts={formattedPosts} />
+      <LatestPost />
       <Hero />
       <div className="w-[95%] mx-auto max-w-[1450px] overflow-y-hidden h-fit mt-3">
         <TopPost posts={formattedPosts} />

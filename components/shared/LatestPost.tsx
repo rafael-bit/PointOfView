@@ -3,14 +3,12 @@
 import { useState } from "react";
 import BlogCard from "./BlogCard";
 import Button from "../ui/Button";
+import { blogData } from "@/constants/blogData";
 import { PostTypes } from "@/types/postTypes";
 
-interface LatestPostProps {
-  posts: PostTypes[];
-}
-
-const LatestPost: React.FC<LatestPostProps> = ({ posts }) => {
-  const latestPost = posts
+const LatestPost: React.FC = () => {
+  // Filtra os posts para exibir apenas os que estão marcados como `latestPost`
+  const latestPost = blogData
     .filter((post) => post.latestPost === true)
     .sort((a, b) =>
       new Date(b.publishDate || "").getTime() - new Date(a.publishDate || "").getTime()
