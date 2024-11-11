@@ -10,7 +10,6 @@ const Home = async () => {
       user: true,
     },
   });
-  console.log(posts);
   
   const formattedPosts: PostTypes[] = posts.map((post) => ({
     id: post.id,

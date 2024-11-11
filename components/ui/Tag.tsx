@@ -1,12 +1,20 @@
-interface tagProps {
+interface TagProps {
   text: Array<string> | string;
 }
-const Tag = ({ text }: tagProps) => {
+
+const Tag = ({ text }: TagProps) => {
+  const tagsArray = Array.isArray(text) ? text : [text];
+
   return (
     <>
-      <span className="uppercase bg-primary py-1 px-3 text-white inline-block rounded-md text-sm self-center">
-        {text}
-      </span>
+      {tagsArray.map((tag, index) => (
+        <span
+          key={index}
+          className="bg-blue-100 py-1 px-3 inline-block rounded-md text-sm self-center mr-2"
+        >
+          {tag}
+        </span>
+      ))}
     </>
   );
 };

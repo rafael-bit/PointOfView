@@ -40,28 +40,41 @@ const page = async ({ params }: { params: { id: string } }) => {
 
   return (
     <div className="w-[95%] mx-auto max-w-[1450px]">
-      <div className="w-full h-[400px] relative mb-5">
+      <div className="w-full h-32 rounded-2xl bg-gray-700"></div>
+      <div className="flex pl-10 pb-7 gap-7 -mt-12">
         <Image
-          fill
-          alt="image for blog"
-          src={post.image_path}
-          className="object-cover"
+          src={post.authorImage}
+          width={500}
+          height={500}
+          alt={`Image of ${post.authorName}`}
+          className="rounded-full w-32 h-32 object-cover"
         />
+        <div className="flex flex-col justify-between h-24">
+          <h5 className="text-2xl font-bold text-white">{post.authorName}</h5>
+          <span>Tags: <Tag text={post.tags} /></span>
+        </div>
       </div>
-
-      <Tag text={post.tags} />
-      <h2 className="text-4xl font-extrabold uppercase text-tertiary my-3">
+      <h2 className="text-4xl font-extrabold uppercase my-3 text-center">
         {post.title}
       </h2>
+      <div className="w-full flex flex-col items-center">
+        <div className="w-1/2 h-[400px] relative mb-5">
+          <Image
+            fill
+            alt="image for blog"
+            src={post.image_path}
+            className="object-cover"
+          />
+        </div>
+      <p className="text-md my-3 w-1/2">{post.paragraph}</p>
+      </div>
 
-      <p className="text-xl my-3"></p>
-
-      <div className="flex md:gap-20 gap-5 relative mt-10 md:flex-row flex-col">
-        <aside className="md:sticky md:top-3/4">
-          <span className="uppercase text-2xl font-extrabold text-tertiary">
+      <div className="flex md:gap-20 gap-5 relative mt-10 justify-evenly items-center">
+        <aside className="md:sticky md:top-3/4 flex items-end gap-3">
+          <span className="text-xl font-bold text-tertiary">
             Share:
           </span>
-          <div className="flex text-3xl gap-5 text-gray-400 mt-2 [&>*]:border">
+          <div className="flex text-3xl gap-5 text-gray-600 mt-2">
             <AiOutlineFacebook />
             <AiOutlineInstagram />
             <AiOutlineTwitter />
@@ -70,13 +83,6 @@ const page = async ({ params }: { params: { id: string } }) => {
 
         <article>
           <div className="mt-5 flex gap-5 items-center">
-            <Image
-              src={post.authorImage}
-              width={500}
-              height={500}
-              alt={`Image of ${post.authorName}`}
-              className="rounded-full w-20 h-20 object-cover"
-            />
             <div className="flex gap-1 flex-col">
               <span>{post.authorName}</span>
               <span>{formatDate(post.publishDate)}</span>
