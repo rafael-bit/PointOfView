@@ -101,7 +101,7 @@ const SingleImageDropzone = React.forwardRef<
           disabled && variants.disabled,
           imageUrl && variants.image,
           (isDragReject ?? fileRejections[0]) &&
-            variants.reject,
+          variants.reject,
           isDragAccept && variants.accept,
           className
         ).trim(),
@@ -207,7 +207,7 @@ const Button = React.forwardRef<
     <button
       className={twMerge(
         "focus-visible:ring-ring inline-flex cursor-pointer items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50",
-        "border border-gray-400 text-tertiary shadow hover:bg-primary hover:text-white ",
+        "border border-gray-400 text-black shadow hover:bg-primary hover:text-white ",
         "h-6 rounded-md px-2 text-xs",
         className
       )}

@@ -18,7 +18,7 @@ const TopPost: React.FC<TopPostProps> = ({ posts }) => {
       <div className="w-full text-center">
         <h2
           id="top-post"
-          className="text-center text-2xl font-extrabold uppercase text-tertiary inline-block px-2 mb-10"
+          className="text-center text-2xl font-extrabold uppercase text-black inline-block px-2 mb-10"
         >
           Notices
         </h2>
@@ -39,15 +39,15 @@ const TopPost: React.FC<TopPostProps> = ({ posts }) => {
                 )}
                 <Overlay />
               </div>
-              <div className="w-full flex justify-center">
+              <div className="w-full flex justify-center p-3">
                 <Tag text={post.tags.join(", ")} />
               </div>
 
-              <h3 className="font-extrabold uppercase text-tertiary text-center">
+              <h3 className="font-extrabold uppercase text-black text-center">
                 {post.title}
               </h3>
 
-              <div className="flex gap-3 justify-center mt-2">
+              <div className="flex gap-2 justify-center mt-2">
                 <span className="font-light">
                   By: {post.authorName}
                 </span>

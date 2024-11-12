@@ -65,7 +65,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ user }) => {
             className="absolute h-screen left-0 top-0 w-full bg-white z-10 border-r overflow-y-auto flex flex-col"
           >
             <div className={clsx("flex flex-col left-0 top-0 w-full bg-white z-20", isScrolling ? "" : "fixed")}>
-              <button onClick={() => setOpenMobileMenu(false)} className="absolute top-5 right-5 text-tertiary">
+              <button onClick={() => setOpenMobileMenu(false)} className="absolute top-5 right-5 text-black">
                 <CgClose size={25} />
               </button>
 

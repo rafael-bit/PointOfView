@@ -25,7 +25,7 @@ const page = async () => {
       ) : (
         <div className="max-w-[90%] mx-auto">
           <div className="w-full text-center mb-10">
-            <h1 className="text-3xl font-extrabold text-tertiary">
+            <h1 className="text-3xl font-extrabold text-black">
               Hello {user?.name}
             </h1>
             <span className="text-lg">

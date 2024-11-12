@@ -66,12 +66,12 @@ const page = async ({ params }: { params: { id: string } }) => {
             className="object-cover"
           />
         </div>
-      <p className="text-md my-3 w-1/2">{post.paragraph}</p>
+        <p className="text-md my-3 w-1/2">{post.paragraph}</p>
       </div>
 
       <div className="flex md:gap-20 gap-5 relative mt-10 justify-evenly items-center">
         <aside className="md:sticky md:top-3/4 flex items-end gap-3">
-          <span className="text-xl font-bold text-tertiary">
+          <span className="text-xl font-bold text-black">
             Share:
           </span>
           <div className="flex text-3xl gap-5 text-gray-600 mt-2">

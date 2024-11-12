@@ -19,19 +19,17 @@ const Hero: React.FC = () => {
             key={post.id}
             className="flex flex-col gap-5 mb-5 text-center relative"
           >
-            <Tag text={post.tags} />
-
-            <h2 className="text-6xl font-extrabold uppercase text-tertiary">
+            <Link href={`/blog/${post.id}`} className="text-6xl font-extrabold uppercase text-black pt-12">
               {post.title}
-            </h2>
-            <div className="flex items-center gap-3 font-light text-tertiary justify-center">
+            </Link>
+            <div className="flex items-center gap-3 text-black justify-center">
               {post.authorImage && (
                 <Image
                   src={post.authorImage}
                   height={50}
                   width={50}
                   alt={`Image of ${post.authorName}`}
-                  className="rounded-full drop-shadow-lg"
+                  className="rounded-full drop-shadow-lg w-16 h-16"
                 />
               )}
               <span>{post.authorName}</span>
@@ -74,13 +72,20 @@ const Hero: React.FC = () => {
                   )}
                   <Overlay />
                 </div>
-                <Tag text={post.tags} />
-                <h3 className="text-1xl font-extrabold uppercase text-tertiary px-5">
+                <div className="p-3">
+                  <Tag text={post.tags} />
+                </div>
+                <h3 className="text-1xl font-extrabold uppercase text-black px-5">
                   {post.title}
                 </h3>
-                <span className="font-light italic">
-                  {formatDate(post.publishDate.toString())}
-                </span>
+                <div className="flex gap-2 justify-center mt-2">
+                  <span className="font-light">
+                    By: {post.authorName}
+                  </span>
+                  <span className="italic font-light">
+                    {formatDate(post.publishDate)}
+                  </span>
+                </div>
               </Link>
             </article>
           ))}

@@ -51,7 +51,7 @@ const Posts: React.FC<{ posts: PostTypes[] }> = ({
       <div className="w-full text-center">
         <h2
           id="posts"
-          className="text-center text-2xl font-extrabold uppercase text-tertiary inline-block px-2 mb-10"
+          className="text-center text-2xl font-extrabold uppercase text-black inline-block px-2 mb-10"
         >
           Columnist
         </h2>
@@ -64,9 +64,9 @@ const Posts: React.FC<{ posts: PostTypes[] }> = ({
             onClick={() => handleCategoryChange(category)}
             className={clsx(
               selectedCategory === category
-                ? "bg-tertiary/60"
-                : "bg-tertiary",
-              "px-4 py-2 rounded hover:bg-tertiary/50 mb-10"
+                ? "bg-black/60"
+                : "bg-black",
+              "px-4 py-2 rounded hover:bg-black/50 mb-10"
             )}
           >
             {category === "all" ? "All" : category}
